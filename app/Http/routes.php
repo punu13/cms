@@ -103,6 +103,17 @@ Route::get('post/{id}/{name}/{password}', 'PostsController@show_post' );
 //     Post::create(['title'=>'example', 'content'=>'example']);
 // });
 
+// Route::get('/update', function () {
+//     Post::where('id', 2)->where('is_admin', 0)->update(['title'=>'NEW PHP TITLE', 'Content'=>'new content']);
+// });
+
+Route::get('/delete', function () {
+    $post = Post::find(1);
+
+    $post->delete();
+
+});
+
 Route::group(['middleware' => ['web']], function () {
     
 
