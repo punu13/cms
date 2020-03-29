@@ -72,9 +72,31 @@ Route::get('post/{id}/{name}/{password}', 'PostsController@show_post' );
 //     return $posts;
 // });
 
-Route::get('/findmore', function () {
-    $posts = Post::findorfail(10);
-    return $posts;
+// Route::get('/findmore', function () {
+//     $posts = Post::findorfail(10);
+//     return $posts;
+// });
+
+// Route::get('/basicinsert', function () {
+//     $post  = new Post;
+
+//     $post->title = 'New Orm Title';
+//     $post->content = 'I am the master of coding universe';
+
+//     $post->save();
+
+
+// });
+
+Route::get('/basicupdate', function () {
+    $post  = Post::find(4);
+
+    $post->title = 'Orm Title Updates';
+    $post->content = 'I am the true master of coding universe';
+
+    $post->save();
+
+
 });
 
 Route::group(['middleware' => ['web']], function () {
